@@ -33,7 +33,7 @@ class App extends Component {
   };
 
   formSubmitHandler = data => {
-    if (this.dublicateContact(data)) {
+    if (this.dublicateContact(data) || this.dublicateNumber(data)) {
       return alert(`${data.name} is already in contacts`);
     }
     const contact = {
@@ -48,6 +48,10 @@ class App extends Component {
 
   dublicateContact = data => {
     return this.state.contacts.find(item => item.name === data.name);
+  };
+
+  dublicateNumber = data => {
+    return this.state.contacts.find(item => item.number === data.number);
   };
 
   changeFilter = e => {
